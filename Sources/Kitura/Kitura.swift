@@ -67,6 +67,23 @@ public class Kitura {
         httpServersAndPorts.append((server: server, port: port))
         return server
     }
+    
+    @discardableResult
+    public class func addHTTPNetServiceServer(withName name:String,
+                                              type:String, domain:String,
+                                              onPort port: Int,
+                                              with delegate: ServerDelegate,
+                                              withSSL sslConfig: SSLConfig?=nil,
+                                              keepAlive keepAliveState: KeepAliveState = .unlimited,
+                                              allowPortReuse: Bool = false) -> HTTPServer {
+        let server = HTTP.createNetServiceServer(withName: name, type: type, domain: domain)
+        server.delegate = delegate
+        server.sslConfig = sslConfig?.config
+        server.keepAliveState = keepAliveState
+        server.allowPortReuse = allowPortReuse
+        httpServersAndPorts.append((server: server, port: port))
+        return server
+    }
 
     /// Add a FastCGIServer on a port with a delegate.
     ///

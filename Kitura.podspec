@@ -13,10 +13,10 @@ Pod::Spec.new do |s|
   s.dependency 'KituraContracts', '1.0.2'
   s.dependency 'KituraTemplateEngine', '2.0.0'
   s.dependency 'TypeDecoder', '1.1.0'
-  s.dependency 'KituraNet', '2.1.1'
+  s.dependency 'KituraNet', '2.1.2'
 
   s.frameworks = 'Security'
-  s.source   = { :git => "https://github.com/bikram990/Kitura.git", :tag => s.version }
+  s.source   = { :git => "https://github.com/bikram990/Kitura.git", :branch => "kitura-2.4.2" }
   s.source_files = "Sources/Kitura/**/*.swift"
   s.pod_target_xcconfig =  {
         'SWIFT_VERSION' => '4.1',
